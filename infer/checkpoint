@@ -1,0 +1,6 @@
+model_checkpoint_path: "imdb_model.ckpt-169800"
+all_model_checkpoint_paths: "imdb_model.ckpt-136689"
+all_model_checkpoint_paths: "imdb_model.ckpt-145179"
+all_model_checkpoint_paths: "imdb_model.ckpt-153669"
+all_model_checkpoint_paths: "imdb_model.ckpt-162159"
+all_model_checkpoint_paths: "imdb_model.ckpt-169800"
