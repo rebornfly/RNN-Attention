@@ -23,6 +23,6 @@
 * model.py  最关键部分，绘制tensorflow计算流图
 * ops.py  最基本的神经网络操作
 * test.py  测试用例（可以忽略）
-* train.py  神经网络训练，超参数设置
-* data目录  数据预处理生成字id  
+* train.py  神经网络训练，超参数设置  
+* data目录  数据预处理生成字id  
 * plot目录  绘制attention图
