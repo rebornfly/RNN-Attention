@@ -27,24 +27,3 @@ class DB(object):
             self.cursor = self.db.cursor(MySQLdb.cursors.DictCursor)
             self.cursor.execute(sql, args)
 
-    #创建订单
-    def update_scores(self, skuid, score):
-        try:
-            #插入base表
-            sql = '''
-                INSERT INTO t_scores(
-                    skuid,
-                    score
-                )
-                values(
-                    %s,
-                    %s
-                )
-            '''
-            self.execute(sql, skuid, score)
-
-            self.db.commit()
-        except  MySQLdb.Error as e:
-            logger.info('[ update score ] err:%s', e)
-            raise MySQLdb.Error(e)
-
