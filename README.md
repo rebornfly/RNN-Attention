@@ -45,5 +45,5 @@ self.decay_rate=0.96           # Decay rate for lr per global step (train batch)
 self.save_every=10             # Save the model every <save_every> epochs
 self.model_name="imdb_model"   # Name of the model
 self.num_classes=5             # number of class for classify
- ```
-        self.infer_dir = "data/ckpt"
+self.infer_dir = "data/ckpt"
+```
