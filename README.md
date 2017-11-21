@@ -10,7 +10,7 @@
  
 ### 模型介绍  
 #### first attention:  
-* 输入 ：字或者词向量本模型没有额外训练词向量，采用字向量，batch_size*vector_size*comment_size  
+* 输入 ：字或者词向量本模型没有额外训练词向量，采用字向量，batch_size * vector_size * comment_size  
 * 输出 ： 评论的向量batch_size*vector_size
 #### second attention:  
 * 输入 ：batch_size*vector_size的评论向量  
