@@ -16,7 +16,8 @@
 * 输入 ：batch_size*vector_size的评论向量  
 * 输出 ：机型的评分
 #### 损失函数：  
-* 普通交叉熵：  
+三种 损失函数都可用根据自己业务场景选择，一般情况普通交叉熵，不均匀数据可以使用权重交叉熵，对于需要误差距离的使用第三种
+* 普通交叉熵：  
 ```
 self.loss = tf.reduce_mean(
             tf.nn.sparse_softmax_cross_entropy_with_logits(
