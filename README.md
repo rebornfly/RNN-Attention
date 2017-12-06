@@ -16,7 +16,7 @@
 * 输入 ：batch_size*vector_size的评论向量  
 * 输出 ：机型的评分
 #### 损失函数：  
-* 普通交叉熵：  
+* 普通交叉熵：  
 ```
 self.loss = tf.reduce_mean(
             tf.nn.sparse_softmax_cross_entropy_with_logits(
@@ -59,11 +59,9 @@ self.loss = tf.reduce_mean(xent)
 self.num_epochs=200            # num of epochs 
 self.batch_size= 1000           # batch size
 self.hidden_size= 100          # num hidden units for RNN
-#self.embedding="glove"        # random|glove
 self.embedding="random"        # random|glove
 self.emb_size= 200             # num hidden units for embeddings
 self.max_grad_norm=5           # max gradient norm
-#self.keep_prob=0.9             # Keep prob for dropout layers
 self.keep_prob=0.9             # Keep prob for dropout layers
 self.num_layers=2              # number of layers for recurrsion
 self.max_input_length=40       # max number of words per review
@@ -72,5 +70,4 @@ self.decay_rate=0.96           # Decay rate for lr per global step (train batch)
 self.save_every=10             # Save the model every <save_every> epochs
 self.model_name="imdb_model"   # Name of the model
 self.num_classes=5             # number of class for classify
-self.infer_dir = "data/ckpt"
 ```
