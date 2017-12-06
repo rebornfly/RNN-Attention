@@ -15,6 +15,33 @@
 #### second attention:  
 * 输入 ：batch_size*vector_size的评论向量  
 * 输出 ：机型的评分
+#### 损失函数：  
+* 普通交叉熵：  
+```
+self.loss = tf.reduce_mean(
+            tf.nn.sparse_softmax_cross_entropy_with_logits(
+                labels=self._labels, logits=self._logits))
+```
+* 分类权重（不用类别权重不同）：
+```
+class_weight = tf.constant([[0.35, 0.2, 0.09, 0.09, 0.27]])
+labels_one_hot = tf.one_hot(self._labels, depth=self.FLAGS.num_classes)
+weight_per_label = tf.transpose( tf.matmul(labels_one_hot, tf.transpose(class_weight))  ) #shape [1, batch_size]
+xent = tf.multiply(weight_per_label , tf.nn.softmax_cross_entropy_with_logits(logits= self._logits, labels = labels_one_hot ))
+self.loss = tf.reduce_mean(xent)
+```
+* 误差距离权重交叉熵：
+```
+real_distance = tf.to_float(tf.abs(tf.subtract(tf.to_int32(tf.argmax(self._logits, 1)), self._labels)))
+distance_index = tf.constant([1.5], dtype=tf.float32)
+self.distance = tf.pow(distance_index, real_distance)
+xent = tf.multiply(tf.to_float(self.distance) , tf.nn.sparse_softmax_cross_entropy_with_logits(logits= self._logits, labels = self._labels))
+self.loss = tf.reduce_mean(xent)
+```
+#### 其他：  
+* 神经元： GRU
+* 激活函数： tanh
+* 初始换： _xavier_weight_init xavier初始化权重
  
 ### 代码结构  
 * db.py 数据库读取数据  
