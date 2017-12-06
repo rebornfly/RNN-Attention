@@ -30,7 +30,7 @@ weight_per_label = tf.transpose( tf.matmul(labels_one_hot, tf.transpose(class_we
 xent = tf.multiply(weight_per_label , tf.nn.softmax_cross_entropy_with_logits(logits= self._logits, labels = labels_one_hot ))
 self.loss = tf.reduce_mean(xent)
 ```
-* 误差距离权重交叉熵：
+* 误差距离权重交叉熵：
 ```
 real_distance = tf.to_float(tf.abs(tf.subtract(tf.to_int32(tf.argmax(self._logits, 1)), self._labels)))
 distance_index = tf.constant([1.5], dtype=tf.float32)
@@ -39,9 +39,9 @@ xent = tf.multiply(tf.to_float(self.distance) , tf.nn.sparse_softmax_cross_entro
 self.loss = tf.reduce_mean(xent)
 ```
 #### 其他：  
-* 神经元： GRU
-* 激活函数： tanh
-* 初始换： _xavier_weight_init xavier初始化权重
+* 神经元： GRU  
+* 激活函数： tanh  
+* 初始换： _xavier_weight_init xavier初始化权重
  
 ### 代码结构  
 * db.py 数据库读取数据  
