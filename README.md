@@ -6,7 +6,7 @@
 * 使用的两层attention的循环神经网络，第一层attention主要是学习单个评论点评的情感语意，第二层attention主要是学习多个学习多个评论对应到一个产品的向量信息，然后通过softmax分类，使用attention主要是避免过长的信息传递状态损失，同时attention方便可视化
 
  
-* ![有attention的LSTM示意图（并非本文使用的流图）](https://github.com/rebornfly/RNN-Attention/blob/master/img/attention.jpg)
+![有attention的LSTM示意图（并非本文使用的流图](https://github.com/rebornfly/RNN-Attention/blob/master/img/attention.jpg)
 
 ![tensorflow计算流图](https://github.com/rebornfly/RNN-Attention/blob/master/img/graph.png)  
  
