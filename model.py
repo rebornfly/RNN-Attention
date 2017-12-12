@@ -399,7 +399,7 @@ class Model():
         real_distance = tf.to_float(tf.abs(tf.subtract(tf.to_int32(tf.argmax(self._logits, 1)), self._labels)))
         distance_index = tf.constant([1.5], dtype=tf.float32)
         self.distance = tf.pow(distance_index, real_distance)
-        """
+        
         xent = tf.multiply(tf.to_float(self.distance) , tf.nn.sparse_softmax_cross_entropy_with_logits(logits= self._logits, labels = self._labels))
 
         self.loss = tf.reduce_mean(xent)
@@ -407,6 +407,7 @@ class Model():
         self.loss = tf.reduce_mean(
             tf.nn.sparse_softmax_cross_entropy_with_logits(
                 labels=self._labels, logits=self._logits))
+        """
         self.accuracy = tf.reduce_mean(tf.cast(tf.equal(tf.argmax(self._logits, 1),
             tf.cast(self._labels, tf.int64)), tf.float32))
         logger.info ("\t self.logits: %s, %s", self._logits.get_shape(), self._labels.get_shape())
