@@ -72,3 +72,5 @@ self.save_every=10             # Save the model every <save_every> epochs
 self.model_name="imdb_model"   # Name of the model
 self.num_classes=5             # number of class for classify
 ```
+### 准确率
+![训练准确率](https://github.com/rebornfly/RNN-Attention/blob/master/img/loss.png)  
